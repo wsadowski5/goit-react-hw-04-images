@@ -38,7 +38,7 @@ export const useFetchData = (query, pageNumber, perPage) => {
     };
 
     fetchData();
-  }, [query, perPage, pageNumber]);
+  }, [query, perPage, pageNumber, images]);
 
   return {
     images,
