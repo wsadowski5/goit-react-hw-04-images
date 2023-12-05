@@ -26,7 +26,7 @@ export const useFetchData = (query, pageNumber, perPage) => {
             safesearch: true,
           },
         });
-        setImages([...images, ...response.hits]);
+        setImages(prevImages => [...prevImages, ...response.hits]);
         setTotalHits(response.totalHits)
       } catch (error) {
         console.error('ERROR:', error);
@@ -38,7 +38,7 @@ export const useFetchData = (query, pageNumber, perPage) => {
     };
 
     fetchData();
-  }, [query, perPage, pageNumber, images]);
+  }, [query, perPage, pageNumber]);
 
   return {
     images,
