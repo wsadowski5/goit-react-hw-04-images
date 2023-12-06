@@ -14,7 +14,7 @@ export const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImgURL, setModalImgURL] = useState('');
 
-  const { images, isLoading, totalHits } = useFetchData(
+  const { images, isLoading, totalHits, resetImages } = useFetchData(
     query,
     pageNumber,
     perPage
@@ -26,10 +26,17 @@ export const App = () => {
     const inputValue = e.target[1].value;
     const pageNumber = 1;
 
+    if ( inputValue !== query){
+      resetImages()
+    }
     setQuery(inputValue);
     setPageNumber(pageNumber);
     form.reset();
+    console.log(images)
+    images.forEach((image)=> console.log(image.id))
   };
+
+
   const handleOpenModal = imgURL => {
     setIsModalOpen(true);
     setModalImgURL(imgURL);

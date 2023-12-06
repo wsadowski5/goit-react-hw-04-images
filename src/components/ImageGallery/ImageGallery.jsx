@@ -5,31 +5,10 @@ import css from './ImageGallery.module.css';
 
 
 
-
-
-// export const ImageGallery = (onClick, data) => {
-//   const openModal = imgURL => {
-//     onClick(imgURL);
-//   };
-
-//   return (
-//     <ul className={css.gallery}>
-//       {data.map(image => (
-//         <ImageGalleryItem
-//           key={image.id}
-//           id={image.id}
-//           smallImg={image.webformatURL}
-//           bigImg={image.largeImageURL}
-//           tags={image.tags}
-//           onClick={openModal}
-//         />
-//       ))}
-//     </ul>
-//   );
-// }
 export class ImageGallery extends Component {
   openModal = imgURL => {
     this.props.onClick(imgURL);
+
   };
 
   render() {

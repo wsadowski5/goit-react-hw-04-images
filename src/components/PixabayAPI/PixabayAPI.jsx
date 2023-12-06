@@ -9,6 +9,7 @@ export const useFetchData = (query, pageNumber, perPage) => {
   const [images, setImages] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [totalHits, setTotalHits] = useState(null)
+  const resetImages = () => setImages([])
 
   useEffect(() => {
     if (query === '') return;
@@ -44,6 +45,7 @@ export const useFetchData = (query, pageNumber, perPage) => {
     images,
     isLoading,
     totalHits,
+    resetImages,
   };
 };
 
